@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form class="" action="<%= bands_url %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <%= auth_token %>
+      <label for="band_name">BAND NAME: </label>
+      <input type="text" name="band[name]" value="<%= @band.name %>">
+
+    </form>
+    <form class="" action="<%=band_url%>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" name="delete">DELETE BAND</button>
+    </form>
+
+
+  </body>
+</html>

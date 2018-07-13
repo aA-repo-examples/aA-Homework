@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>ADD A BAND</h2>
+  <br>
+    <form class="" action="<%= bands_url %>" method="post">
+      <%= auth_token %>
+
+      <label for="band_name">BAND NAME: </label>
+    <br>
+      <input type="text" name="band[name]">
+      <button type="submit" name="add_band">ADD BAND</button>
+
+    </form>
+  </body>
+</html>

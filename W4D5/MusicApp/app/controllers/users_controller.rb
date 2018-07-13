@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login(@user)
-      redirect_to user_url(@user)
+      redirect_to bands_url
     else
       flash.now[:errors] = @user.errors.full_messages
       # not sure full_message is correct...full_error?

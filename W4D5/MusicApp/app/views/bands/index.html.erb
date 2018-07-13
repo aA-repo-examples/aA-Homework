@@ -10,8 +10,8 @@
     <ul>
       <% @bands.each do |band| %>
         <li><%= band.name %></li>
-        <a href=" <%= band_url %>" method='get'></a>
-        <!-- not sure if I can do method = get here... -->
+        <a href=" <%= band_url(band) %>" method='get'></a>
+        <!-- not sure if I can do methods = get here... -->
       <% end %>
     </ul>
 

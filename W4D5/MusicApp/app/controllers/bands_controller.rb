@@ -6,9 +6,9 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = Band.find_by(band_params)
+    @band = Band.new(band_params)
     if @band.save
-      redirect_to band_url
+      redirect_to band_url(@band)
     else
       flash[:errors] = @band.errors.full_messages
       render :new
@@ -23,6 +23,7 @@ class BandsController < ApplicationController
   end
 
   def edit
+    @band = Band.find(params[:id])
     render :edit
   end
 
@@ -42,10 +43,16 @@ class BandsController < ApplicationController
   end
 
   def destroy
+    @band = Band.find_by(band_params)
+    if @band.delete
+      render :index
+    else
+      flash.now[:errors] = ['Invalid band.']
+    end
   end
 
   private
   def band_params
-    params.expect(:band).permit(:name)
+    params.require(:band).permit(:name)
   end
 end
