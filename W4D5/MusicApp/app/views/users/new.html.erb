@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h2 >SIGN UP</h2>
+  <% unless flash.now[:errors] == nil%>
+    <% flash.now[:errors].each  do |error|%>
+      <p id='error'>Error: <%= error %></p>
+      <br>
+    <% end %>
+  <% end %>
+
+    <form action="../session/new" method="post">
+      <label for="login">Already have an account? </label>
+    <br>
+      <input type="hidden" name="_method" value="get">
+      <button type="submit" name="login">LOG IN</button>
+    </form>
+
+  <br>
+  <br>
+  <br>
+    <form action="<%= users_url %>" method="post">
+      <%= auth_token %>
+
+      <label for="email">Email: </label>
+      <input type="text" name="user[email]">
+
+    <br>
+
+      <label for="password">Password: </label>
+      <input type="password" name="user[password]">
+
+    <br>
+    <br>
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>

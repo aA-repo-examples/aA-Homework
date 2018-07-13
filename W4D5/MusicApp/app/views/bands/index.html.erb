@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>BANDS</h2>
+
+    <ul>
+      <% @bands.each do |band| %>
+        <li><%= band.name %></li>
+        <a href=" <%= band_url %>" method='get'></a>
+        <!-- not sure if I can do method = get here... -->
+      <% end %>
+    </ul>
+
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>LOG IN</h2>
+
+    <% unless flash.now[:errors] == nil%>
+      <% flash.now[:errors].each  do |error|%>
+        <p id='error'>Error: <%= error %></p>
+      <% end %>
+    <% end %>
+
+    <form action="../users/new" method="post">
+      <label for="login">Don't have an account? </label>
+    <br>
+      <input type="hidden" name="_method" value="get">
+      <button type="submit" name="login">SIGN UP</button>
+    </form>
+
+  <br>
+  <br>
+  <br>
+
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token %>
+
+      <label for="email">EMAIL: </label>
+      <input type="text" name="user[email]">
+    <br>
+      <label for="password">PASSWORD: </label>
+      <input type="password" name="user[password]">
+    <br>
+      <button type="submit" name="button">Submit</button>
+
+    </form>
+
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <header id='page_header'>
+    <h1>MUSIC APP</h1>
+
+    <% if current_user %>
+    <form action="<%= session_url %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="delete">
+      <button class='log_button' type="submit" name="logout">LOG OUT</button>
+    </form>
+    <% else %>
+    <form action="<%= new_session_url %>" method="post">
+      <%= auth_token %>
+      <input type="hidden" name="_method" value="get">
+      <button class='log_button' type="submit" name="login">LOG IN</button>
+    </form>
+    <% end %>
+  </header>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
