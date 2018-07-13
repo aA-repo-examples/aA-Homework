@@ -6,7 +6,7 @@
   </head>
   <body>
 
-    <h2 >SIGN UP</h2>
+    <h2>New user</h2>
   <% unless flash.now[:errors] == nil%>
     <% flash.now[:errors].each  do |error|%>
       <p id='error'>Error: <%= error %></p>
@@ -27,17 +27,17 @@
     <form action="<%= users_url %>" method="post">
       <%= auth_token %>
 
-      <label for="email">EMAIL: </label>
+      <label for="Email">Email</label>
       <input type="text" name="user[email]">
 
     <br>
 
-      <label for="password">PASSWORD: </label>
+      <label for="password">password</label>
       <input type="password" name="user[password]">
 
     <br>
 
-      <button type="submit">Submit</button>
+      <button type="submit">Create User</button>
     </form>
 
   </body>
