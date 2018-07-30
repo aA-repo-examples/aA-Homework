@@ -416,6 +416,11 @@ var reducer = function reducer() {
   var action = arguments[1];
 
   switch (action.type) {
+    case "SWITCH_LOCATION":
+      return {
+        city: action.city,
+        jobs: action.jobs
+      };
     default:
       return state;
   }
